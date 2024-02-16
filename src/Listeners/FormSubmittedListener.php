@@ -46,7 +46,7 @@ class FormSubmittedListener
                 }
 
                 throw ValidationException::withMessages([
-                    '_unspecified' => 'Failed spam check',
+                    '_unspecified' => __('Failed spam check'),
                 ]);
            }
 
