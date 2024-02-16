@@ -1,0 +1,31 @@
+{
+    "name": "thoughtco/statamic-stop-forum-spam",
+    "description": "Checks form submissions against stop forum spam",
+    "autoload": {
+        "psr-4": {
+            "Thoughtco\\StatamicStopForumSpam\\": "src"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ryan Mitchell"
+        }
+    ],
+    "support": {
+        "email": "help@thoughtcollective.com"
+    },
+    "extra": {
+        "statamic": {
+            "name": "Stop Forum Spam",
+            "description": "Checks form submissions against stop forum spam"
+        },
+        "laravel": {
+            "providers": [
+                "Thoughtco\\StatamicStopForumSpam\\ServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "statamic/cms": "^4.0"
+    }
+}
