@@ -2,6 +2,7 @@
 
 namespace Thoughtco\StatamicStopForumSpam\Listeners;
 
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Validation\ValidationException;
 use Statamic\Events\FormSubmitted;
