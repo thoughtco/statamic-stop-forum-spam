@@ -8,7 +8,7 @@ Install by composer: `composer require thoughtco/statamic-stop-forum-spam`
 
 ## Configuration
 
-By default all Form Submissions will be checked for the presence of an `email` field, and if found a check will be run.
+By default all Form Submissions will be checked for the presence of an `text` with a type of `email` field, and if found a check will be run. It fallsback to checking for a handle that you can specify in the config.
 
 If you want to override this, publish the config:
 
