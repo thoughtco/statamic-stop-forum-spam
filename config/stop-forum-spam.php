@@ -6,4 +6,6 @@ return [
     'email_handle' => 'email',
 
     'fail_silently' => true,
+
+    'test_mode' => env('STATAMIC_STOP_FORUM_SPAM_TEST_MODE', 'off'),
 ];
