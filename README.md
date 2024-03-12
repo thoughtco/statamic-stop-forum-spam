@@ -15,3 +15,11 @@ If you want to override this, publish the config:
 `php artisan vendor:publish --tag=statamic-stop-forum-spam`
 
 You then have the option to specify an array of specific forms to check, what field handle to check for and whether you want to fail silently.
+
+## Testing during development
+
+If you want to test responses during development you can use the `STATAMIC_STOP_FORUM_SPAM_TEST_MODE` env value.
+
+Setting it to `disable` will prevent the addon from running.
+
+Setting it to `fail` with throw a validation error, or fail silently, depending on what the `fail_silently` config value is set to.

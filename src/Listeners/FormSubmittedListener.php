@@ -23,6 +23,22 @@ class FormSubmittedListener
             }
         }
 
+        if (app()->environment() != 'production') {
+            $testMode = config('stop-forum-spam.test_mode', 'off');
+
+            if ($testMode == 'disable') {
+                return;
+            }
+
+            if ($testMode == 'fail') {
+                if (config('stop-forum-spam.fail_silently')) {
+                    return false;
+                }
+
+                $this->throwFailure();
+            }
+        }
+
         $fieldHandle = config('stop-forum-spam.email_handle', 'email');
 
         $matchingFields = $form->blueprint()->fields()->all()->filter(fn ($field) => $field->type() == 'text' && $field->get('input_type', '') == 'email');
@@ -46,11 +62,16 @@ class FormSubmittedListener
                     return false;
                 }
 
-                throw ValidationException::withMessages([
-                    '_unspecified' => __('Failed spam check'),
-                ]);
+                $this->throwFailure();
            }
 
         }
+    }
+
+    public function throwFailure()
+    {
+        throw ValidationException::withMessages([
+            '_unspecified' => __('Failed spam check'),
+        ]);
     }
 }
